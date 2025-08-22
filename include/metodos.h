@@ -10,7 +10,7 @@ typedef double (*fx)(double);
 
 double biscecao(fx f, double a, double b);
 
-void teste();
+double falsa_posicao(fx f, double a, double b);
 
 
 #endif  // METODOS_H

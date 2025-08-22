@@ -10,7 +10,7 @@ double f(double x) {
 
 
 int main(){
-    double resultado = biscecao(f, 0, 4);
+    double resultado = falsa_posicao(f, 0, 4);
     printf("%llf\n", resultado);
 
     return 0;
