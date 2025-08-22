@@ -9,8 +9,14 @@ double f(double x) {
 }
 
 
+// 2x
+double df(double x) {
+    return 2*x;
+}
+
+
 int main(){
-    double resultado = falsa_posicao(f, 0, 4);
+    double resultado = secantes(f, 0, 1);
     printf("%llf\n", resultado);
 
     return 0;

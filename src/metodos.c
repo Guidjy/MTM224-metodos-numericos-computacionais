@@ -70,3 +70,43 @@ double falsa_posicao(fx f, double a, double b)
 
     return c;
 }
+
+
+double newton_raphson(fx f, fx df, double x)
+{
+    // calcula o quanto x tem que ser deslocado para chegar a raíz para x0
+    double delta_x = f(x) / df(x);
+    // enquanto a distância até a raíz for maior que e
+    while (delta_x > EPSILON)
+    {
+        // calcula o quanto x tem que ser deslocado para chegar a raíz para xi
+        delta_x = f(x) / df(x);
+        // xi+1 = xi - f(x) / f'(x)  
+        x = x - delta_x;
+    }
+    return x;
+}
+
+
+double secantes(fx f, double x0, double x1)
+{
+    double x2;
+
+    while (fabs(f(x1)) > EPSILON)
+    {
+        // calcula o denominador da formula da secante para prevenir divisão por 0
+        double denominador = f(x1) - f(x0);
+        if (fabs(denominador) < EPSILON)
+        {
+            printf("Divisão por zero no método da secante\n");
+            return NAN;
+        }
+        // x2 = x1 - f(x1)*(x1-x0) / (f(x1)-f(x0))
+        x2 = x1 - f(x1)*(x1-x0) / denominador;
+        // atualiza x para próxima iterações
+        x0 = x1;
+        x1 = x2;
+    }
+
+    return x1;
+}
