@@ -9,6 +9,8 @@ CMakeFiles/metodos.dir/src/main.c.obj: C:/CC_semestre_4/metodos/src/main.c \
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_stdio_config.h \
+  C:/msys64/ucrt64/include/crtdefs.h \
+  C:/msys64/ucrt64/include/math.h \
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/stdio.h \
@@ -23,6 +25,8 @@ CMakeFiles/metodos.dir/src/metodos.c.obj: C:/CC_semestre_4/metodos/src/metodos.c
   C:/msys64/ucrt64/include/_mingw_secapi.h \
   C:/msys64/ucrt64/include/corecrt.h \
   C:/msys64/ucrt64/include/corecrt_stdio_config.h \
+  C:/msys64/ucrt64/include/crtdefs.h \
+  C:/msys64/ucrt64/include/math.h \
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/stdio.h \
@@ -47,6 +51,10 @@ C:/msys64/ucrt64/include/_mingw_mac.h:
 C:/msys64/ucrt64/include/_mingw_off_t.h:
 
 C:/msys64/ucrt64/include/corecrt.h:
+
+C:/msys64/ucrt64/include/crtdefs.h:
+
+C:/msys64/ucrt64/include/math.h:
 
 C:/msys64/ucrt64/include/sec_api/stdio_s.h:
 

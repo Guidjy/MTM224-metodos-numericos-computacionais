@@ -8,7 +8,7 @@ typedef double (*fx)(double);
 
 // métodos de encontrar zeros de função
 
-double biscecao(fx f, double a, double b, double e);
+double biscecao(fx f, double a, double b);
 
 void teste();
 

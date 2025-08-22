@@ -10,4 +10,5 @@ CMakeFiles/metodos.dir/src/main.c.obj: \
  C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
  C:/msys64/ucrt64/include/_mingw_off_t.h \
  C:/msys64/ucrt64/include/swprintf.inl \
- C:/msys64/ucrt64/include/sec_api/stdio_s.h
+ C:/msys64/ucrt64/include/sec_api/stdio_s.h \
+ C:/msys64/ucrt64/include/math.h C:/msys64/ucrt64/include/crtdefs.h
