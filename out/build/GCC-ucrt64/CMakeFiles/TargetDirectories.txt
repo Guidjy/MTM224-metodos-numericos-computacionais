@@ -1,0 +1,3 @@
+C:/CC_semestre_4/metodos/out/build/GCC-ucrt64/CMakeFiles/metodos.dir
+C:/CC_semestre_4/metodos/out/build/GCC-ucrt64/CMakeFiles/edit_cache.dir
+C:/CC_semestre_4/metodos/out/build/GCC-ucrt64/CMakeFiles/rebuild_cache.dir
