@@ -16,8 +16,9 @@ double df(double x) {
 
 
 int main(){
-    double resultado = secantes(f, 0, 1);
+    double resultado = biscecao(f, 0, 4);
     printf("%llf\n", resultado);
+    // 0-0
 
     return 0;
 }
