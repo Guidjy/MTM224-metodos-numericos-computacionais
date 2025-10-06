@@ -1,4 +1,4 @@
-#include "metodos.h"
+#include "zeros.h"
 #include <math.h>
 #include <stdio.h>
 

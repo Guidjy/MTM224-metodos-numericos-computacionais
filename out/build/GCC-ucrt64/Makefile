@@ -152,29 +152,53 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/main.c.s
 .PHONY : src/main.c.s
 
-src/metodos.obj: src/metodos.c.obj
-.PHONY : src/metodos.obj
+src/sistemas_lineares.obj: src/sistemas_lineares.c.obj
+.PHONY : src/sistemas_lineares.obj
 
 # target to build an object file
-src/metodos.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/metodos.c.obj
-.PHONY : src/metodos.c.obj
+src/sistemas_lineares.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj
+.PHONY : src/sistemas_lineares.c.obj
 
-src/metodos.i: src/metodos.c.i
-.PHONY : src/metodos.i
+src/sistemas_lineares.i: src/sistemas_lineares.c.i
+.PHONY : src/sistemas_lineares.i
 
 # target to preprocess a source file
-src/metodos.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/metodos.c.i
-.PHONY : src/metodos.c.i
+src/sistemas_lineares.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/sistemas_lineares.c.i
+.PHONY : src/sistemas_lineares.c.i
 
-src/metodos.s: src/metodos.c.s
-.PHONY : src/metodos.s
+src/sistemas_lineares.s: src/sistemas_lineares.c.s
+.PHONY : src/sistemas_lineares.s
 
 # target to generate assembly for a file
-src/metodos.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/metodos.c.s
-.PHONY : src/metodos.c.s
+src/sistemas_lineares.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/sistemas_lineares.c.s
+.PHONY : src/sistemas_lineares.c.s
+
+src/zeros.obj: src/zeros.c.obj
+.PHONY : src/zeros.obj
+
+# target to build an object file
+src/zeros.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/zeros.c.obj
+.PHONY : src/zeros.c.obj
+
+src/zeros.i: src/zeros.c.i
+.PHONY : src/zeros.i
+
+# target to preprocess a source file
+src/zeros.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/zeros.c.i
+.PHONY : src/zeros.c.i
+
+src/zeros.s: src/zeros.c.s
+.PHONY : src/zeros.s
+
+# target to generate assembly for a file
+src/zeros.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/zeros.c.s
+.PHONY : src/zeros.c.s
 
 # Help Target
 help:
@@ -188,9 +212,12 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
-	@echo ... src/metodos.obj
-	@echo ... src/metodos.i
-	@echo ... src/metodos.s
+	@echo ... src/sistemas_lineares.obj
+	@echo ... src/sistemas_lineares.i
+	@echo ... src/sistemas_lineares.s
+	@echo ... src/zeros.obj
+	@echo ... src/zeros.i
+	@echo ... src/zeros.s
 .PHONY : help
 
 

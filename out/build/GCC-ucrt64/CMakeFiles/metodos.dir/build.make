@@ -86,36 +86,53 @@ CMakeFiles/metodos.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/metodos.dir/src/main.c.s"
 	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\CC_semestre_4\metodos\src\main.c -o CMakeFiles\metodos.dir\src\main.c.s
 
-CMakeFiles/metodos.dir/src/metodos.c.obj: CMakeFiles/metodos.dir/flags.make
-CMakeFiles/metodos.dir/src/metodos.c.obj: CMakeFiles/metodos.dir/includes_C.rsp
-CMakeFiles/metodos.dir/src/metodos.c.obj: C:/CC_semestre_4/metodos/src/metodos.c
-CMakeFiles/metodos.dir/src/metodos.c.obj: CMakeFiles/metodos.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\CC_semestre_4\metodos\out\build\GCC-ucrt64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/metodos.dir/src/metodos.c.obj"
-	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/metodos.dir/src/metodos.c.obj -MF CMakeFiles\metodos.dir\src\metodos.c.obj.d -o CMakeFiles\metodos.dir\src\metodos.c.obj -c C:\CC_semestre_4\metodos\src\metodos.c
+CMakeFiles/metodos.dir/src/zeros.c.obj: CMakeFiles/metodos.dir/flags.make
+CMakeFiles/metodos.dir/src/zeros.c.obj: CMakeFiles/metodos.dir/includes_C.rsp
+CMakeFiles/metodos.dir/src/zeros.c.obj: C:/CC_semestre_4/metodos/src/zeros.c
+CMakeFiles/metodos.dir/src/zeros.c.obj: CMakeFiles/metodos.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\CC_semestre_4\metodos\out\build\GCC-ucrt64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/metodos.dir/src/zeros.c.obj"
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/metodos.dir/src/zeros.c.obj -MF CMakeFiles\metodos.dir\src\zeros.c.obj.d -o CMakeFiles\metodos.dir\src\zeros.c.obj -c C:\CC_semestre_4\metodos\src\zeros.c
 
-CMakeFiles/metodos.dir/src/metodos.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/metodos.dir/src/metodos.c.i"
-	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\CC_semestre_4\metodos\src\metodos.c > CMakeFiles\metodos.dir\src\metodos.c.i
+CMakeFiles/metodos.dir/src/zeros.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/metodos.dir/src/zeros.c.i"
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\CC_semestre_4\metodos\src\zeros.c > CMakeFiles\metodos.dir\src\zeros.c.i
 
-CMakeFiles/metodos.dir/src/metodos.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/metodos.dir/src/metodos.c.s"
-	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\CC_semestre_4\metodos\src\metodos.c -o CMakeFiles\metodos.dir\src\metodos.c.s
+CMakeFiles/metodos.dir/src/zeros.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/metodos.dir/src/zeros.c.s"
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\CC_semestre_4\metodos\src\zeros.c -o CMakeFiles\metodos.dir\src\zeros.c.s
+
+CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj: CMakeFiles/metodos.dir/flags.make
+CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj: CMakeFiles/metodos.dir/includes_C.rsp
+CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj: C:/CC_semestre_4/metodos/src/sistemas_lineares.c
+CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj: CMakeFiles/metodos.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\CC_semestre_4\metodos\out\build\GCC-ucrt64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj"
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj -MF CMakeFiles\metodos.dir\src\sistemas_lineares.c.obj.d -o CMakeFiles\metodos.dir\src\sistemas_lineares.c.obj -c C:\CC_semestre_4\metodos\src\sistemas_lineares.c
+
+CMakeFiles/metodos.dir/src/sistemas_lineares.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/metodos.dir/src/sistemas_lineares.c.i"
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\CC_semestre_4\metodos\src\sistemas_lineares.c > CMakeFiles\metodos.dir\src\sistemas_lineares.c.i
+
+CMakeFiles/metodos.dir/src/sistemas_lineares.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/metodos.dir/src/sistemas_lineares.c.s"
+	C:\msys64\ucrt64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\CC_semestre_4\metodos\src\sistemas_lineares.c -o CMakeFiles\metodos.dir\src\sistemas_lineares.c.s
 
 # Object files for target metodos
 metodos_OBJECTS = \
 "CMakeFiles/metodos.dir/src/main.c.obj" \
-"CMakeFiles/metodos.dir/src/metodos.c.obj"
+"CMakeFiles/metodos.dir/src/zeros.c.obj" \
+"CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj"
 
 # External object files for target metodos
 metodos_EXTERNAL_OBJECTS =
 
 metodos.exe: CMakeFiles/metodos.dir/src/main.c.obj
-metodos.exe: CMakeFiles/metodos.dir/src/metodos.c.obj
+metodos.exe: CMakeFiles/metodos.dir/src/zeros.c.obj
+metodos.exe: CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj
 metodos.exe: CMakeFiles/metodos.dir/build.make
 metodos.exe: CMakeFiles/metodos.dir/linkLibs.rsp
 metodos.exe: CMakeFiles/metodos.dir/objects1.rsp
 metodos.exe: CMakeFiles/metodos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\CC_semestre_4\metodos\out\build\GCC-ucrt64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable metodos.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\CC_semestre_4\metodos\out\build\GCC-ucrt64\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable metodos.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\metodos.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

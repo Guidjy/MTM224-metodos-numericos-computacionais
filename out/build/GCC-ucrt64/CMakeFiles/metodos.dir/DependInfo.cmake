@@ -9,7 +9,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/CC_semestre_4/metodos/src/main.c" "CMakeFiles/metodos.dir/src/main.c.obj" "gcc" "CMakeFiles/metodos.dir/src/main.c.obj.d"
-  "C:/CC_semestre_4/metodos/src/metodos.c" "CMakeFiles/metodos.dir/src/metodos.c.obj" "gcc" "CMakeFiles/metodos.dir/src/metodos.c.obj.d"
+  "C:/CC_semestre_4/metodos/src/sistemas_lineares.c" "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj" "gcc" "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj.d"
+  "C:/CC_semestre_4/metodos/src/zeros.c" "CMakeFiles/metodos.dir/src/zeros.c.obj" "gcc" "CMakeFiles/metodos.dir/src/zeros.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

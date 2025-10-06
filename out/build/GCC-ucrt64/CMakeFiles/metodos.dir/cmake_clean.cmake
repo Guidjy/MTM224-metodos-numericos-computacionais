@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
   "CMakeFiles/metodos.dir/src/main.c.obj"
   "CMakeFiles/metodos.dir/src/main.c.obj.d"
-  "CMakeFiles/metodos.dir/src/metodos.c.obj"
-  "CMakeFiles/metodos.dir/src/metodos.c.obj.d"
+  "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj"
+  "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj.d"
+  "CMakeFiles/metodos.dir/src/zeros.c.obj"
+  "CMakeFiles/metodos.dir/src/zeros.c.obj.d"
   "libmetodos.dll.a"
   "metodos.exe"
   "metodos.exe.manifest"
