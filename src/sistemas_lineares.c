@@ -1,4 +1,5 @@
 #include "sistemas_lineares.h"
+#include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -6,191 +7,272 @@
 #include <assert.h>
 
 
-matriz *matriz_cria(int n_lin, int n_col, double valores[n_lin][n_col])
+#define EPSILON 0.001
+#define MAX_ITERACOES 1000
+
+
+double **matriz_cria(int n_lin, int n_col)
 {
-    // aloca memória para a estrutura de uma matriz
-    matriz *mat = (matriz*) malloc(sizeof(matriz));
-    assert(mat != NULL);
+    double **m = (double**) malloc(n_lin * sizeof(double*));
+    assert(m != NULL);
 
-    // inicializa os valores da estrutura
-    mat->n_lin = n_lin;
-    mat->n_col = n_col;
-
-    // aloca memória para as linhas da matriz
-    mat->elem = (double**) malloc(mat->n_lin * sizeof(double*));
-    assert(mat->elem != NULL);
-    for (int i = 0; i < mat->n_lin; i++)
+    for (int i = 0; i < n_lin; i++)
     {
-        // aloca memória para as colunas da linha i
-        mat->elem[i] = (double*) malloc(mat->n_col * sizeof(double));
-        assert(mat->elem[i] != NULL);
-        // inicializa as colunas da linha i
-        if (valores != NULL)
-        {
-            memcpy(mat->elem[i], valores[i], n_col * sizeof(double));
-        }
-        else
-        {
-            for (int j = 0; j < n_col; j++) mat->elem[i][j] = 0;
-        }
+        m[i] = (double*) malloc(n_col * sizeof(double));
+        assert(m[i] != NULL);
+        for (int j = 0; j < n_col; j++) m[i][j] = 0;
     }
 
-    return mat;
+    return m;
 }
 
 
-matriz *matriz_copia(matriz *orig, int n_lin, int n_col) 
+void matriz_destroi(double **mat, int n_lin)
 {
-    matriz *copia = malloc(sizeof(matriz));
-    copia->n_lin = n_lin;
-    copia->n_col = n_col;
+    if (mat == NULL) return;
 
-    copia->elem = malloc(copia->n_lin * sizeof(double*));
-    for (int i = 0; i < copia->n_lin; i++) 
+    for (int i = 0; i < n_lin; i++)
     {
-        copia->elem[i] = malloc(copia->n_col * sizeof(double));
-        memcpy(copia->elem[i], orig->elem[i], copia->n_col * sizeof(double));
+        if (mat[i] != NULL) free(mat[i]);
     }
 
-    return copia;
+    free(mat);
 }
 
 
-void matriz_destroi(matriz *self)
+double **matriz_multiplica(double **m1, double **m2, int n)
 {
-    if (self == NULL) return;
+    // cria matriz resultado n x n
+    double **res = matriz_cria(n, n);
 
-    // libera a matriz
-    for (int i = 0; i < self->n_lin; i++)
+    // multiplica as matrizes
+    for (int i = 0; i < n; i++)
     {
-        free(self->elem[i]);
-    }
-    free(self->elem);
-
-    // libera a estrutura da matriz
-    free(self);
-}
-
-
-matriz *matriz_multiplica(matriz *m1, matriz *m2)
-{
-    if (m1->n_col != m2->n_lin) return NULL;
-
-    matriz *resultado = matriz_cria(m1->n_lin, m2->n_col, NULL);
-    int dim = m1->n_col;  // dimensão interna para soma (m1->n_col == m2->n_lin)
-
-    for (int i = 0; i < resultado->n_lin; i++)
-    {
-        for (int j = 0; j < resultado->n_col; j++)
+        for (int j = 0; j < n; j++)
         {
-            double soma = 0.0;
-            for (int k = 0; k < dim; k++)
+            for (int k = 0; k < n; k++)
             {
-                soma += m1->elem[i][k] * m2->elem[k][j];
+                res[i][j] += m1[i][k] * m2[k][j];
             }
-            resultado->elem[i][j] = soma;
         }
     }
 
-    return resultado;
+    return res;
 }
 
 
-void matriz_imprime(matriz *self, bool eh_aumentada)
+double *matriz_multiplica_vetor(double **mat, double *vet, int n)
 {
-    if (self == NULL) return;
+    // cria vetor resultado
+    double *res = (double*) calloc(n, sizeof(double));
 
-    for (int i = 0; i < self->n_lin; i++)
+    // multiplicação linha × vetor
+    for (int i = 0; i < n; i++)
     {
-        printf("|");
-        for (int j = 0; j < self->n_col; j++)
+        for (int j = 0; j < n; j++)
         {
-            if (eh_aumentada && j == self->n_col - 1) printf("|");
-            printf("%4.1lf ", self->elem[i][j]);
+            res[i] += mat[i][j] * vet[j];
         }
-        printf("|\n");
     }
-    printf("\n");
+
+    return res;
 }
 
 
-void vetor_imprime(double *self, int n)
+void vetor_imprime(double *vet, int n)
 {
     printf("[");
     for (int i = 0; i < n; i++)
     {
-        printf("%6.2lf, ", self[i]);
+        printf("%6.2lf, ", vet[i]);
     }
     printf("]\n");
 }
 
 
-double *eliminacao_gaussiana(matriz *mat)
+void matriz_imprime(double **mat, int n_lin, int n_col)
 {
-    // escalona a matriz
-    for (int i = 0; i < mat->n_lin; i++)
+    for (int i = 0; i < n_lin; i++)
     {
-        // multiplica a linha i por um escalar "c" tal que o pivô da linha se torne 1
-        double pivo = mat->elem[i][i];
-        for (int j = 0; j < mat->n_col; j++)
+        printf("|");
+        for (int j = 0; j < n_col; j++)
         {
-            mat->elem[i][j] /= pivo;
+            printf("%6.2lf ", mat[i][j]);
         }
-        
-        for (int lin = i+1; lin < mat->n_lin; lin++)
+        printf("|\n");
+    }
+}
+
+
+void sistema_imprime(double **mat, double *vet, int n_lin, int n_col)
+{
+    for (int i = 0; i < n_lin; i++)
+    {
+        printf("|");
+        for (int j = 0; j < n_col; j++)
         {
-            double c = -1*mat->elem[lin][i];
-            for (int j = i; j < mat->n_col; j++)
-            {
-                mat->elem[lin][j] += c * mat->elem[i][j];
-            }
+            printf("%6.2lf ", mat[i][j]);
         }
+        printf("|%6.2lf |\n", vet[i]);
+    }
+}
+
+
+double *resolve_sistema(double **mat_aumentada, int n)
+{
+    double *solucao = (double*) malloc(n * sizeof(double));
+    // começa resolvendo de baixo para cima
+    for (int i = n - 1; i >= 0; i--)
+    {
+        // xi = b[i]
+        solucao[i] = mat_aumentada[i][n];
+        for (int j = i + 1; j < n; j++)
+        {
+            // Aii * xi = b[i] - Aii+1 * xi+1 + Aii+2 * xi+2 + ...
+            solucao[i] -= mat_aumentada[i][j] * solucao[j];
+        }
+        solucao[i] /= mat_aumentada[i][i];
+    }
+}
+
+
+// =================================
+// Métodos numéricos
+// =================================
+
+
+double *eliminacao_gaussiana(double **mat, double *vet, int n)
+{
+    // cria a matriz aumentada
+    double **mat_aumentada = matriz_cria(n, n+1);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++) mat_aumentada[i][j] = mat[i][j];
+        mat_aumentada[i][n] = vet[i];
     }
     
-    // obtem o vetor solução
-    double *solucao = (double*) malloc(mat->n_lin * sizeof(double));
-    for (int i = mat->n_lin - 1; i >= 0; i--)
+    // escalona a matriz aumentada
+    for (int i = 0; i < n; i++)
     {
-        solucao[i] = mat->elem[i][mat->n_col - 1];
-        for (int j = i + 1; j < mat->n_lin; j++)
+        // divide a linha i pelo pivô
+        double pivo = mat_aumentada[i][i];
+        for (int j = 0; j < n + 1; j++) mat_aumentada[i][j] /= pivo;
+        // zera os elementos abaixo do pivô pela operação entre linhas
+        for (int k = i+1; k < n; k++)
         {
-            solucao[i] -= mat->elem[i][j] * solucao[j];
+            double c = mat_aumentada[k][i];
+            for (int j = 0; j < n+1; j++) mat_aumentada[k][j] -= mat_aumentada[i][j] * c;
         }
     }
+
+    // resolve o sistema escalonado
+    double *solucao = resolve_sistema(mat_aumentada, n);
+    
+    // libera a matriz aumentada
+    matriz_destroi(mat_aumentada, n);
 
     return solucao;
 }
 
 
-matriz **decomposicao_lu(matriz *mat, double b[mat->n_lin])
+double ***fatoracao_lu(double **mat, int n)
 {
-    // cria as matrizes l e u
-    matriz *l = matriz_cria(mat->n_lin, mat->n_col, NULL);
-    // Inicializa a diagonal de L com 1.0
-    for (int i = 0; i < l->n_lin; i++) l->elem[i][i] = 1.0;
-    matriz *u = matriz_copia(mat, mat->n_lin, mat->n_col);
-
-    // fatoração
-    for (int i = 0; i < u->n_lin; i++)
+    // cria as matrizes L e U
+    double **l = matriz_cria(n, n);
+    for (int i = 0; i < n; i++)
     {
-        double pivo = u->elem[i][i];
-        // zera os elementos abaixo do pivô
-        for (int lin = i + 1; lin < u->n_lin; lin++)
+        for (int j = 0; j < n; j++)
         {
-            // multiplicador "c" = elemento a ser zerado / pivo
-            double c = u->elem[lin][i] / pivo;
-            // armazena o multiplicador na matriz l
-            l->elem[lin][i] = c;
-            for (int j = i; j < u->n_col; j++)
+            if (i == j)
             {
-                u->elem[lin][j] -= c * u->elem[i][j];
+                l[i][j] = 1;
+            }
+            else
+            {
+                l[i][j] = 0;
             }
         }
     }
+    double **u = matriz_cria(n, n);
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < n; j++) u[i][j] = mat[i][j];
 
-    matriz **lu = (matriz**) malloc(2 * sizeof(matriz*));
+    // escalona a matriz U
+    for (int i = 0; i < n; i++)
+    {
+        // zera os elementos abaixo do pivô pela operação entre linhas
+        double pivo = u[i][i];
+        for (int k = i+1; k < n; k++)
+        {
+            double c = u[k][i] / pivo;
+            l[k][i] = c;
+            for (int j = 0; j < n+1; j++) u[k][j] -= u[i][j] * c;
+        }
+    }
+
+    // retorna as matrizes L e U
+    double ***lu = (double***) malloc(2 * sizeof(double**));
     lu[0] = l;
     lu[1] = u;
-
     return lu;
+}
+
+
+double *gauss_jacobi(double **mat, double *vet, double *chute, int n)
+{
+    // inicializa as variáveis do sistema x(k+1) = Cx(k) + g
+    // matriz C
+    double **C = matriz_cria(n, n);
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            if (i == j)
+            {
+                C[i][j] = 0;
+            }
+            else
+            {
+                C[i][j] = -1 * (mat[i][j] / mat[i][i]);
+            }
+        }
+    }
+    // vetor g
+    double *g = (double*) malloc(n * sizeof(double));
+    assert(g != NULL);
+    for (int i = 0; i < n; i++) g[i] = vet[i] / mat[i][i];
+    // vetores x(k_1) e x
+    double *x_novo = malloc(n * sizeof(double));
+    double *x = calloc(n, sizeof(double));
+    memcpy(x, chute, n * sizeof(double));
+
+    // método iterativo
+    double erro = 1.0;
+    int iteracoes = 0;
+    while (erro > EPSILON && iteracoes < MAX_ITERACOES)
+    {
+        // Cx(k)
+        double *Cx = matriz_multiplica_vetor(C, x, n);
+        // x(k+1) = Cx(k) + g
+        for (int i = 0; i < n; i++)
+        {
+            x_novo[i] = Cx[i] + g[i];
+        }
+        free(Cx);
+        
+        // norma euclidiana
+        erro = 0;
+        for (int i = 0; i < n; i++) erro += pow(x_novo[i] - x[i], 2);
+        erro = sqrt(erro);
+
+        iteracoes++;
+
+        for (int i = 0; i < n; i++) x[i] = x_novo[i];
+    }
+
+    free(C);
+    free(x_novo);
+    free(g);
+
+    return x;
 }

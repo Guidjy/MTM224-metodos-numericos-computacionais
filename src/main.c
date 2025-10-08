@@ -48,26 +48,45 @@ int main(){
     printf("// Solucao de sistemas lineares\n");
     printf("//========================================\n");
     // sistema linear
-    double valores[3][4] = { {3, 2, 4, 1},
-                             {1, 1, 2, 2},
-                             {4, 3, -2, 3} };
-    double b[] = {1, 2, 3};
-    matriz *a = matriz_cria(3, 4, valores);
-    printf("sistema linear: \n");
-    matriz_imprime(a, true);
+    double sistema[3][4] = { {10, 1, 1, 12},
+                             {1, 10, 1, 12},
+                             {1, 1, 10, 12} };
+    // matriz de equações
+    int n_lin = 3;
+    int n_col = 3;
+    double **A = matriz_cria(n_lin, n_col);
+    for (int i = 0; i < n_lin; i++)
+        for (int j = 0; j < n_col; j++) A[i][j] = sistema[i][j];
+    // vetor de soluções
+    double *b = (double*) malloc(n_lin * sizeof(double));
+    for (int i = 0; i < n_lin; i++) b[i] = sistema[i][3];
+    // imprime o sistema linear
+    printf(">sistema linear: \n");
+    sistema_imprime(A, b, n_lin, n_col);
+    printf("\n");
 
     // eliminação gaussiana
     printf("- eliminacao gaussiana: \n");
-    matriz *m1 = matriz_copia(a, 3, 4);
-    double *solucao = eliminacao_gaussiana(m1);
-    vetor_imprime(solucao, m1->n_lin);
+    double *solucao = eliminacao_gaussiana(A, b, n_lin);
+    vetor_imprime(solucao, n_lin);
+    printf("\n");
     free(solucao);
     // fatoração LU
-    printf("- decomposicao LU: \n");
-    matriz *m2 = matriz_copia(a, 3, 3);
-    matriz **lu = decomposicao_lu(m2, b);
-    matriz_imprime(lu[0], false);
-    matriz_imprime(lu[1], false);
+    printf("- fatoracao LU: \n");
+    double ***lu = fatoracao_lu(A, n_lin);
+    matriz_imprime(lu[0], n_lin, n_lin);
+    printf("\n");
+    matriz_imprime(lu[1], n_lin, n_lin);
+    printf("\n");
+    //matriz_destroi(lu[0], n_lin);
+    //matriz_destroi(lu[1], n_lin);
+    free(lu);
+    // gauss-jacobi
+    printf("- Gauss-Jacobi: \n");
+    double *chute = (double*) malloc(n_lin * sizeof(double));
+    for (int i = 0; i < n_lin; i++) chute[i] = 0;
+    solucao = gauss_jacobi(A, b, chute, n_lin);
+    vetor_imprime(solucao, n_lin);
 
     return 0;
 }

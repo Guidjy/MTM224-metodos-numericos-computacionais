@@ -2,48 +2,44 @@
 #define SISTEMAS_LINEARES_H
 
 
-#include <stdbool.h>
+// funções de matriz e vetor
 
+// aloca memória para uma matriz
+double **matriz_cria(int n_lin, int n_col);
 
-typedef struct
-{
-    int n_lin;      // número de linhas
-    int n_col;      // número de colunas    
-    double **elem;  // elementos da matriz
-} matriz;
+// libera toda a memória alocada para uma matriz
+void matriz_destroi(double **mat, int n_lin);
 
+// multiplica duas matrizes quadradas nxn
+double **matriz_multiplica(double **m1, double **m2, int n);
 
-// funções de matriz
+// multiplica uma matriz nxn por um vetor de tamanho n e retora o vetor resultante
+double *matriz_multiplica_vetor(double **mat, double *vet, int n);
 
-matriz *matriz_cria(int n_lin, int n_col, double valores[n_lin][n_col]);
+// imprime uma matriz
+void matriz_imprime(double **mat, int n_lin, int n_col);
 
-matriz *matriz_copia(matriz *orig, int n_lin, int n_col);
+// imprime um vetor
+void vetor_imprime(double *vet, int n);
 
-void matriz_destroi(matriz *self);
+// imprime um sistema linear
+void sistema_imprime(double **mat, double *vet, int n_lin, int n_col);
 
-matriz *matriz_multiplica(matriz *m1, matriz *m2);
-
-void matriz_imprime(matriz *self, bool eh_aumentada);
-
-void vetor_imprime(double *self, int n);
+// resolve um sistema linear a partir de uma matriz aumentada escalonada
+double *resolve_sistema(double **mat_aumentada, int n);
 
 // métodos numéricos
 
-// encontra a solução de um sistema linear por meio da escalonação de uma matriz aumentada.
-// - argumentos:
-// > mat: matriz aumentada
-// - retorno: vetor de soluções [x0, x1, ..., xn]
-double *eliminacao_gaussiana(matriz *mat);
+// escalona uma matriz aumentada nxn+1 usando eliminação gaussiana e resolve seu sistema linear
+double *eliminacao_gaussiana(double **mat, double *vet, int n);
 
-// decompõe uma matriz quadrada em uma matriz triangular superior e uma inferior, tal que o produto
-// das duas resulte na matriz original. A vantagem para solução de sistemas lineares, é que a
-// decomposição só precisa ser feita uma vez, e o sistema Ax = b se torna (LU)x = b, que é
-// muito rápido de se resolver.
-// - argumentos:
-// > mat: matriz quadrada
-// > b: vetor de Ax = b
-// - retorno: vetor de matriz [l, u]
-matriz **decomposicao_lu(matriz *mat, double b[mat->n_lin]);
+// fatora uma matriz quadrada em uma triangular superior e uma triangular inferior e as retorna
+double ***fatoracao_lu(double **mat, int n);
+
+// resolve um sistema linear Ax = b de forma iterativa por transforma-lo na forma x(k+1) = Cx(k) + g
+double *gauss_jacobi(double **mat, double *vet, double *chute, int n);
+
+
 
 
 #endif  // SISTEMAS_LINEARES_H

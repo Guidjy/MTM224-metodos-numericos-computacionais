@@ -25,7 +25,6 @@ CMakeFiles/metodos.dir/src/main.c.obj: C:/CC_semestre_4/metodos/src/main.c \
   C:/msys64/ucrt64/include/vadefs.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
-  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdbool.h \
   C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h
 
 CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj: C:/CC_semestre_4/metodos/src/sistemas_lineares.c \
@@ -42,6 +41,7 @@ CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj: C:/CC_semestre_4/metodos/src
   C:/msys64/ucrt64/include/errno.h \
   C:/msys64/ucrt64/include/limits.h \
   C:/msys64/ucrt64/include/malloc.h \
+  C:/msys64/ucrt64/include/math.h \
   C:/msys64/ucrt64/include/sdks/_mingw_ddk.h \
   C:/msys64/ucrt64/include/sec_api/stdio_s.h \
   C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
@@ -125,8 +125,6 @@ C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/limits.h:
 
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h:
 
-C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdbool.h:
-
 C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/syslimits.h:
 
 C:/CC_semestre_4/metodos/src/sistemas_lineares.c:
@@ -134,3 +132,5 @@ C:/CC_semestre_4/metodos/src/sistemas_lineares.c:
 C:/msys64/ucrt64/include/assert.h:
 
 C:/msys64/ucrt64/include/sec_api/string_s.h:
+
+C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/stdbool.h:
