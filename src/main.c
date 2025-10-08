@@ -78,8 +78,8 @@ int main(){
     printf("\n");
     matriz_imprime(lu[1], n_lin, n_lin);
     printf("\n");
-    //matriz_destroi(lu[0], n_lin);
-    //matriz_destroi(lu[1], n_lin);
+    matriz_destroi(lu[0], n_lin);
+    matriz_destroi(lu[1], n_lin);
     free(lu);
     // gauss-jacobi
     printf("- Gauss-Jacobi: \n");

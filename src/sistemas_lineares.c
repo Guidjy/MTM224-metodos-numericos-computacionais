@@ -133,6 +133,7 @@ double *resolve_sistema(double **mat_aumentada, int n)
         }
         solucao[i] /= mat_aumentada[i][i];
     }
+    return solucao;
 }
 
 
@@ -206,7 +207,7 @@ double ***fatoracao_lu(double **mat, int n)
         {
             double c = u[k][i] / pivo;
             l[k][i] = c;
-            for (int j = 0; j < n+1; j++) u[k][j] -= u[i][j] * c;
+            for (int j = 0; j < n; j++) u[k][j] -= u[i][j] * c;
         }
     }
 
@@ -270,7 +271,7 @@ double *gauss_jacobi(double **mat, double *vet, double *chute, int n)
         for (int i = 0; i < n; i++) x[i] = x_novo[i];
     }
 
-    free(C);
+    matriz_destroi(C, n);
     free(x_novo);
     free(g);
 
