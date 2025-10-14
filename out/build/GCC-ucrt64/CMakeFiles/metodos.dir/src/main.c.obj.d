@@ -2,6 +2,7 @@ CMakeFiles/metodos.dir/src/main.c.obj: \
  C:\CC_semestre_4\metodos\src\main.c \
  C:/CC_semestre_4/metodos/include/zeros.h \
  C:/CC_semestre_4/metodos/include/sistemas_lineares.h \
+ C:/CC_semestre_4/metodos/include/ajuste_curvas.h \
  C:/msys64/ucrt64/include/math.h C:/msys64/ucrt64/include/crtdefs.h \
  C:/msys64/ucrt64/include/corecrt.h C:/msys64/ucrt64/include/_mingw.h \
  C:/msys64/ucrt64/include/_mingw_mac.h \

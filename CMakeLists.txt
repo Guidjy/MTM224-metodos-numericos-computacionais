@@ -5,6 +5,7 @@ add_executable(metodos
     src/main.c
     src/zeros.c
     src/sistemas_lineares.c
+    src/ajuste_curvas.c
 )
 
 target_include_directories(metodos PRIVATE ${PROJECT_SOURCE_DIR}/include)

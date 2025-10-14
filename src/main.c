@@ -1,5 +1,6 @@
 #include "zeros.h"
 #include "sistemas_lineares.h"
+#include "ajuste_curvas.h"
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -87,6 +88,23 @@ int main(){
     for (int i = 0; i < n_lin; i++) chute[i] = 0;
     solucao = gauss_jacobi(A, b, chute, n_lin);
     vetor_imprime(solucao, n_lin);
+
+    
+    // métodos para ajuste de curvas
+    printf("//========================================\n");
+    printf("// Ajuste de curvas\n");
+    printf("//========================================\n");
+
+    // mmq em uma reta
+    printf("- Reta: \n");
+    // pontos x
+    int n_pontos = 5;
+    double *x = malloc(n_pontos * sizeof(double));
+    for (int i = 0; i < n_pontos; i++) x[i] = i - 2;
+    // pontos y (f(x) = 2x - 1)
+    double *y = malloc(n_pontos * sizeof(double));
+    for (int i = 0; i < n_pontos; i++) y[i] = 2*x[i] - 1; 
+    minimos_quadrados(x, y, 1, n_pontos);
 
     return 0;
 }

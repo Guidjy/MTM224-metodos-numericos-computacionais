@@ -128,6 +128,30 @@ metodos/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/build
 .PHONY : metodos/fast
 
+src/ajuste_curvas.obj: src/ajuste_curvas.c.obj
+.PHONY : src/ajuste_curvas.obj
+
+# target to build an object file
+src/ajuste_curvas.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/ajuste_curvas.c.obj
+.PHONY : src/ajuste_curvas.c.obj
+
+src/ajuste_curvas.i: src/ajuste_curvas.c.i
+.PHONY : src/ajuste_curvas.i
+
+# target to preprocess a source file
+src/ajuste_curvas.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/ajuste_curvas.c.i
+.PHONY : src/ajuste_curvas.c.i
+
+src/ajuste_curvas.s: src/ajuste_curvas.c.s
+.PHONY : src/ajuste_curvas.s
+
+# target to generate assembly for a file
+src/ajuste_curvas.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/ajuste_curvas.c.s
+.PHONY : src/ajuste_curvas.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... metodos
+	@echo ... src/ajuste_curvas.obj
+	@echo ... src/ajuste_curvas.i
+	@echo ... src/ajuste_curvas.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

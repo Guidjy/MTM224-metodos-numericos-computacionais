@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/metodos.dir/src/ajuste_curvas.c.obj"
+  "CMakeFiles/metodos.dir/src/ajuste_curvas.c.obj.d"
   "CMakeFiles/metodos.dir/src/main.c.obj"
   "CMakeFiles/metodos.dir/src/main.c.obj.d"
   "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj"
