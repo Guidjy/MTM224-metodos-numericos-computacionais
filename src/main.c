@@ -91,20 +91,32 @@ int main(){
 
     
     // métodos para ajuste de curvas
-    printf("//========================================\n");
+    printf("\n//========================================\n");
     printf("// Ajuste de curvas\n");
     printf("//========================================\n");
 
     // mmq em uma reta
-    printf("- Reta: \n");
+    printf("- Reta: (-2, 0), (-1, 0), (0, -1), (1, 0), (2, 7)\n");
     // pontos x
     int n_pontos = 5;
     double *x = malloc(n_pontos * sizeof(double));
-    for (int i = 0; i < n_pontos; i++) x[i] = i - 2;
+    for (int i = 0; i < n_pontos; i++) x[i] = i - 2;  // -2 até 2
     // pontos y (f(x) = 2x - 1)
     double *y = malloc(n_pontos * sizeof(double));
-    for (int i = 0; i < n_pontos; i++) y[i] = 2*x[i] - 1; 
-    minimos_quadrados(x, y, 1, n_pontos);
+    y[0] = 0, y[1] = 0, y[2] = -1, y[3] = 0, y[4] = 7;
+    double *coeficientes = minimos_quadrados(x, y, 1, n_pontos);
+    vetor_imprime(coeficientes, 2);
+    free(coeficientes);
+    printf("\n");
+
+    // mmq em uma parábola
+    printf("- Parabola: (-2, 7.1), (-1, 3.4), (0, 1.2), (1, -0.4), (2, -0.9)\n");
+    x[0] = -2, x[1] = -1, x[2] = 0, x[3] = 1, x[4] = 2;
+    y[0] = 7.1, y[1] = 3.4, y[2] = 1.2, y[3] = -0.4, y[4] = -0.9;
+    coeficientes = minimos_quadrados(x, y, 2, n_pontos);
+    vetor_imprime(coeficientes, 3);
+
+
 
     return 0;
 }
