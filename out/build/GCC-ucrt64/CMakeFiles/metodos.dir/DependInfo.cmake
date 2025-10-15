@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/CC_semestre_4/metodos/src/ajuste_curvas.c" "CMakeFiles/metodos.dir/src/ajuste_curvas.c.obj" "gcc" "CMakeFiles/metodos.dir/src/ajuste_curvas.c.obj.d"
+  "C:/CC_semestre_4/metodos/src/interpolacao.c" "CMakeFiles/metodos.dir/src/interpolacao.c.obj" "gcc" "CMakeFiles/metodos.dir/src/interpolacao.c.obj.d"
   "C:/CC_semestre_4/metodos/src/main.c" "CMakeFiles/metodos.dir/src/main.c.obj" "gcc" "CMakeFiles/metodos.dir/src/main.c.obj.d"
   "C:/CC_semestre_4/metodos/src/sistemas_lineares.c" "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj" "gcc" "CMakeFiles/metodos.dir/src/sistemas_lineares.c.obj.d"
   "C:/CC_semestre_4/metodos/src/zeros.c" "CMakeFiles/metodos.dir/src/zeros.c.obj" "gcc" "CMakeFiles/metodos.dir/src/zeros.c.obj.d"

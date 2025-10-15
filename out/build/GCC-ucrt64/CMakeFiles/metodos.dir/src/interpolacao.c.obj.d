@@ -1,9 +1,7 @@
-CMakeFiles/metodos.dir/src/main.c.obj: \
- C:\CC_semestre_4\metodos\src\main.c \
- C:/CC_semestre_4/metodos/include/zeros.h \
- C:/CC_semestre_4/metodos/include/sistemas_lineares.h \
- C:/CC_semestre_4/metodos/include/ajuste_curvas.h \
+CMakeFiles/metodos.dir/src/interpolacao.c.obj: \
+ C:\CC_semestre_4\metodos\src\interpolacao.c \
  C:/CC_semestre_4/metodos/include/interpolacao_h \
+ C:/CC_semestre_4/metodos/include/sistemas_lineares.h \
  C:/msys64/ucrt64/include/math.h C:/msys64/ucrt64/include/crtdefs.h \
  C:/msys64/ucrt64/include/corecrt.h C:/msys64/ucrt64/include/_mingw.h \
  C:/msys64/ucrt64/include/_mingw_mac.h \
@@ -18,8 +16,4 @@ CMakeFiles/metodos.dir/src/main.c.obj: \
  C:/msys64/ucrt64/include/sec_api/stdlib_s.h \
  C:/msys64/ucrt64/include/malloc.h \
  C:/msys64/ucrt64/lib/gcc/x86_64-w64-mingw32/14.2.0/include/mm_malloc.h \
- C:/msys64/ucrt64/include/errno.h C:/msys64/ucrt64/include/stdio.h \
- C:/msys64/ucrt64/include/corecrt_stdio_config.h \
- C:/msys64/ucrt64/include/_mingw_off_t.h \
- C:/msys64/ucrt64/include/swprintf.inl \
- C:/msys64/ucrt64/include/sec_api/stdio_s.h
+ C:/msys64/ucrt64/include/errno.h

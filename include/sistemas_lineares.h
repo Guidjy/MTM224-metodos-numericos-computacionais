@@ -28,6 +28,9 @@ void sistema_imprime(double **mat, double *vet, int n_lin, int n_col);
 // resolve um sistema linear a partir de uma matriz aumentada escalonada
 double *resolve_sistema(double **mat_aumentada, int n);
 
+// resolve um sistema linear Ax = b a partir de uma matriz nxn e um vetor de tamanho n
+double *resolve_sistema_mat_vet(double **A, double *b, int n);
+
 // métodos numéricos
 
 // escalona uma matriz aumentada nxn+1 usando eliminação gaussiana e resolve seu sistema linear

@@ -152,6 +152,30 @@ src/ajuste_curvas.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/ajuste_curvas.c.s
 .PHONY : src/ajuste_curvas.c.s
 
+src/interpolacao.obj: src/interpolacao.c.obj
+.PHONY : src/interpolacao.obj
+
+# target to build an object file
+src/interpolacao.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/interpolacao.c.obj
+.PHONY : src/interpolacao.c.obj
+
+src/interpolacao.i: src/interpolacao.c.i
+.PHONY : src/interpolacao.i
+
+# target to preprocess a source file
+src/interpolacao.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/interpolacao.c.i
+.PHONY : src/interpolacao.c.i
+
+src/interpolacao.s: src/interpolacao.c.s
+.PHONY : src/interpolacao.s
+
+# target to generate assembly for a file
+src/interpolacao.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\metodos.dir\build.make CMakeFiles/metodos.dir/src/interpolacao.c.s
+.PHONY : src/interpolacao.c.s
+
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
 
@@ -236,6 +260,9 @@ help:
 	@echo ... src/ajuste_curvas.obj
 	@echo ... src/ajuste_curvas.i
 	@echo ... src/ajuste_curvas.s
+	@echo ... src/interpolacao.obj
+	@echo ... src/interpolacao.i
+	@echo ... src/interpolacao.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

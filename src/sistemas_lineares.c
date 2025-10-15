@@ -137,6 +137,81 @@ double *resolve_sistema(double **mat_aumentada, int n)
 }
 
 
+// na real é eliminação gaussiana estável
+double *resolve_sistema_mat_vet(double **A, double *b, int n)
+{
+    int i, j, k, max;
+    double temp;
+
+    // Aloca memória para o vetor solução
+    double *x = (double *)malloc(n * sizeof(double));
+    if (x == NULL)
+    {
+        fprintf(stderr, "Erro: falha ao alocar memória para o vetor solução.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    // Eliminação Gaussiana com pivoteamento parcial
+    for (i = 0; i < n - 1; i++)
+    {
+        // Encontra o pivô máximo na coluna i
+        max = i;
+        for (k = i + 1; k < n; k++)
+        {
+            if (fabs(A[k][i]) > fabs(A[max][i]))
+                max = k;
+        }
+
+        // Troca as linhas se necessário
+        if (max != i)
+        {
+            double *temp_row = A[i];
+            A[i] = A[max];
+            A[max] = temp_row;
+
+            temp = b[i];
+            b[i] = b[max];
+            b[max] = temp;
+        }
+
+        // Eliminação
+        for (k = i + 1; k < n; k++)
+        {
+            if (A[i][i] == 0)
+            {
+                fprintf(stderr, "Erro: pivô nulo detectado.\n");
+                free(x);
+                return NULL;
+            }
+
+            double m = A[k][i] / A[i][i];
+            for (j = i; j < n; j++)
+                A[k][j] -= m * A[i][j];
+            b[k] -= m * b[i];
+        }
+    }
+
+    // Substituição regressiva
+    for (i = n - 1; i >= 0; i--)
+    {
+        double soma = 0.0;
+        for (j = i + 1; j < n; j++)
+            soma += A[i][j] * x[j];
+
+        if (A[i][i] == 0)
+        {
+            fprintf(stderr, "Erro: sistema sem solução única.\n");
+            free(x);
+            return NULL;
+        }
+
+        x[i] = (b[i] - soma) / A[i][i];
+    }
+
+    return x;
+}
+
+
 // =================================
 // Métodos numéricos
 // =================================

@@ -1,6 +1,7 @@
 #include "zeros.h"
 #include "sistemas_lineares.h"
 #include "ajuste_curvas.h"
+#include "interpolacao_h"
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -97,6 +98,7 @@ int main(){
 
     // mmq em uma reta
     printf("- Reta: (-2, 0), (-1, 0), (0, -1), (1, 0), (2, 7)\n");
+
     // pontos x
     int n_pontos = 5;
     double *x = malloc(n_pontos * sizeof(double));
@@ -115,6 +117,25 @@ int main(){
     y[0] = 7.1, y[1] = 3.4, y[2] = 1.2, y[3] = -0.4, y[4] = -0.9;
     coeficientes = minimos_quadrados(x, y, 2, n_pontos);
     vetor_imprime(coeficientes, 3);
+
+    free(x);
+    free(y);
+    free(coeficientes);
+
+    // métodos para interpolação polinomial
+    printf("\n//========================================\n");
+    printf("// Interpolacao polinomial\n");
+    printf("//========================================\n");
+
+    // pontos (xi, f(xi))
+    n_pontos = 3;
+    x = malloc(n_pontos * sizeof(double));
+    y = malloc(n_pontos * sizeof(double));
+    x[0] = -1, x[1] = 0, x[2] =  2;
+    y[0] =  4, y[1] = 1, y[2] = -1;
+
+    coeficientes = interpola_polinomio(x, y, n_pontos);
+    vetor_imprime(coeficientes, n_pontos);
 
 
 
