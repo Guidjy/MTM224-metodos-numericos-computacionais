@@ -1,4 +1,4 @@
-#include "interpolacao_h"
+#include "interpolacao.h"
 #include "sistemas_lineares.h"
 #include <math.h>
 #include <stdlib.h>

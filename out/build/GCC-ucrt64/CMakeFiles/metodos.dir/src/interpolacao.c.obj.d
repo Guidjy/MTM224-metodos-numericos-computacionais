@@ -1,6 +1,6 @@
 CMakeFiles/metodos.dir/src/interpolacao.c.obj: \
  C:\CC_semestre_4\metodos\src\interpolacao.c \
- C:/CC_semestre_4/metodos/include/interpolacao_h \
+ C:/CC_semestre_4/metodos/include/interpolacao.h \
  C:/CC_semestre_4/metodos/include/sistemas_lineares.h \
  C:/msys64/ucrt64/include/math.h C:/msys64/ucrt64/include/crtdefs.h \
  C:/msys64/ucrt64/include/corecrt.h C:/msys64/ucrt64/include/_mingw.h \

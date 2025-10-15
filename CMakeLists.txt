@@ -7,6 +7,7 @@ add_executable(metodos
     src/sistemas_lineares.c
     src/ajuste_curvas.c
     src/interpolacao.c
+    src/integracao.c
 )
 
 target_include_directories(metodos PRIVATE ${PROJECT_SOURCE_DIR}/include)

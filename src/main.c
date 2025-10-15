@@ -1,10 +1,14 @@
 #include "zeros.h"
 #include "sistemas_lineares.h"
 #include "ajuste_curvas.h"
-#include "interpolacao_h"
+#include "interpolacao.h"
+#include "integracao.h"
 #include <math.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+
+#define e 2.7182
 
 
 // x² - 2
@@ -14,6 +18,10 @@ double f(double x) {
 // 2x
 double df(double x) {
     return 2*x;
+}
+// e^x
+double g(double x) {
+    return pow(e, x);
 }
 
 
@@ -133,11 +141,24 @@ int main(){
     y = malloc(n_pontos * sizeof(double));
     x[0] = -1, x[1] = 0, x[2] =  2;
     y[0] =  4, y[1] = 1, y[2] = -1;
+    printf("Pontos: ");
+    for (int i = 0; i < n_pontos; i++) printf("(%.0lf, %.0lf), ", x[i], y[i]);
+    printf("\n");
 
     coeficientes = interpola_polinomio(x, y, n_pontos);
     vetor_imprime(coeficientes, n_pontos);
 
+    // integração
+    printf("\n//========================================\n");
+    printf("// Integracaoo\n");
+    printf("//========================================\n");
+    printf(">funcao: e^x\n");
 
+    // regra dos trapézios
+    double area = trapezios(g, 0, 1, 100);
+    printf("- trapezios: %lf\n", area);
+    area = simpson(g, 0, 1, 100);
+    printf("- 1/3 de simpson %lf\n", area);
 
     return 0;
 }
